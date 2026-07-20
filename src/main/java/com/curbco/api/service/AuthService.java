@@ -1,6 +1,7 @@
 package com.curbco.api.service;
 
 import com.curbco.api.dto.AuthResponse;
+import com.curbco.api.dto.LoginRequest;
 import com.curbco.api.dto.RegisterRequest;
 import com.curbco.api.model.Role;
 import com.curbco.api.model.User;
@@ -45,5 +46,17 @@ public class AuthService {
         // Más adelante será:
         // String jwt = jwtService.generateToken(user);
         // return new AuthResponse(jwt);
+    }
+
+    public AuthResponse login(LoginRequest request) {
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Contraseña incorrecta");
+        }
+
+        String jwt = jwtService.generateToken(user);
+        return new AuthResponse(jwt);
     }
 }

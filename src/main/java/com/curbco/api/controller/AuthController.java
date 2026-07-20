@@ -1,6 +1,7 @@
 package com.curbco.api.controller;
 
 import com.curbco.api.dto.AuthResponse;
+import com.curbco.api.dto.LoginRequest;
 import com.curbco.api.dto.RegisterRequest;
 import com.curbco.api.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -16,5 +17,10 @@ public class AuthController {
     @PostMapping("/register")
     public AuthResponse register(@RequestBody RegisterRequest request) {
         return authService.register(request);
+    }
+
+    @PostMapping("/login")
+    public AuthResponse login(@RequestBody LoginRequest request) {
+        return authService.login(request);
     }
 }
