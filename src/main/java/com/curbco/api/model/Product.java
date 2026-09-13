@@ -15,16 +15,18 @@ public class Product {
     private String price;
     private String category;
     private String tag;
+    private String image;
 
     // Constructors
     public Product() {}
 
-    public Product(String brand, String title, String price, String category, String tag) {
+    public Product(String brand, String title, String price, String category, String tag, String image) {
         this.brand = brand;
         this.title = title;
         this.price = price;
         this.category = category;
         this.tag = tag;
+        this.image = image;
     }
 
     // Getters y Setters
@@ -45,4 +47,7 @@ public class Product {
 
     public String getTag() { return tag; }
     public void setTag(String tag) { this.tag = tag; }
+
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
 }
