@@ -19,8 +19,8 @@ public class DataSeeder implements CommandLineRunner {
         if (productRepository.count() == 0) {
             productRepository.save(new Product("Thrasher", "Mag Logo Hoodie", "$89.900", "Ropa", "Hot", "https://i.ebayimg.com/images/g/7A4AAOSwcOZlrhMW/s-l1200.jpg"));
             productRepository.save(new Product("Vans", "Old Skool Pro", "$129.900", "Zapatillas", "Sold Out", "https://cdn-images.farfetch-contents.com/15/94/58/48/15945848_44299334_1000.jpg"));
-            productRepository.save(new Product("Santa Cruz", "Screaming Hand Tee", "$45.900", "Ropa", "Sale", null));
-            productRepository.save(new Product("Volcom", "Full Stone Cap", "$38.900", "Accesorios", null, null));
+            productRepository.save(new Product("Santa Cruz", "Screaming Hand Tee", "$45.900", "Ropa", "Sale", "https://img.nhs-info.com/heroes/santa_cruz_skateboards_screaming_hand_mobile_1699999705.jpg"));
+            productRepository.save(new Product("Volcom", "Full Stone Cap", "$38.900", "Accesorios", null, "https://hatstore.b-cdn.net/198433254654_AI_ENVIRONMENT_1.jpg?width=307&aspect_ratio=307%3A246&quality=80"));
             productRepository.save(new Product("HUF", "Essentials TT Hoodie", "$75.900", "Ropa", null, null));
             productRepository.save(new Product("DC Shoes", "Pure High Top", "$110.900", "Zapatillas", null, null));
             productRepository.save(new Product("Independent", "Bar Logo Tee", "$42.900", "Ropa", null, null));
