@@ -12,24 +12,25 @@ public class Product {
 
     private String brand;
     private String title;
-    private String price;
+    private String price;        // texto para mostrar: "$89.900"
+    private Long priceCents;     // valor real para cobrar: 8990000
     private String category;
     private String tag;
     private String image;
 
-    // Constructors
     public Product() {}
 
-    public Product(String brand, String title, String price, String category, String tag, String image) {
+    public Product(String brand, String title, String price, Long priceCents,
+                   String category, String tag, String image) {
         this.brand = brand;
         this.title = title;
         this.price = price;
+        this.priceCents = priceCents;
         this.category = category;
         this.tag = tag;
         this.image = image;
     }
 
-    // Getters y Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -41,6 +42,9 @@ public class Product {
 
     public String getPrice() { return price; }
     public void setPrice(String price) { this.price = price; }
+
+    public Long getPriceCents() { return priceCents; }
+    public void setPriceCents(Long priceCents) { this.priceCents = priceCents; }
 
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
