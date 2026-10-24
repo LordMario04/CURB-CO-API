@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
+import com.curbco.api.dto.OrderResponse;
+import java.util.List;
 
 import java.util.UUID;
 
@@ -74,6 +76,15 @@ public class OrderService {
             throw notFound();
         }
         return order;
+    }
+
+    @Transactional(readOnly = true)
+    public List<OrderResponse> getAllForUser(User user) {
+        return orderRepository
+                .findAllByUserIdOrderByCreatedAtDesc(user.getId())
+                .stream()
+                .map(OrderResponse::from)
+                .toList();
     }
 
     @Transactional
